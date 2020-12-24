@@ -1,12 +1,11 @@
 import './dashboard.scss';
-import { getLunchProgrammeData } from '../services/lunch-data';
+import { getLaunchProgrammeData } from '../services/launch-data';
 import { useEffect, useState } from 'react';
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
-    console.log(props.filters);
     useEffect(() => {
-        getLunchProgrammeData(props.filters).then(data => {
+        getLaunchProgrammeData(props.filters).then(data => {
             setData(data);
         })
     }, [props.filters])
@@ -14,38 +13,38 @@ const Dashboard = (props) => {
     return (
         <div className="App">
             <div className="row">
-                {data && data.length > 0 ? data.map(item => <div className="col-lg-3 my-2 col-md-6 col-sm-12">
-                    <div className="card">
+                {data && data.length > 0 ? data.map(item => <div className="col-xl-3 col-lg-4 mb-3 col-md-6 col-sm-12">
+                    <div className="card fill">
                         <div className="py-3">
-                            <img style={{ height: '140px', width: '100%' }} src={item.links && item.links.flickr_images[0]} alt="rocket" />
+                            <img style={{ height: '175px', width: '100%' }} src={item.links && item.links.mission_patch} alt="rocket" />
                         </div>
-                        <div>{item.mission_name}#{item.flight_number}</div>
+                        <div>{item.mission_name}&nbsp;#&nbsp;{item.flight_number}</div>
                         <div>
-                            <label>Mission Id&nbsp;:</label>
+                            <label className="font-weight-bold">Mission Id&nbsp;:</label>
                             <ul>
                                 {item.mission_id.map(id => <li>{id}</li>)}
                             </ul>
                         </div>
                         <div>
-                            <label>Lunch Year&nbsp;:</label>
+                            <label className="font-weight-bold">Launch Year&nbsp;:</label>
                             <label>
                                 {item.launch_year}
                             </label>
                         </div>
                         <div>
-                            <label>Successful Lunch&nbsp;:</label>
+                            <label  className="font-weight-bold">Successful Launch&nbsp;:</label>
                             <label>
                                 {item.launch_success ? 'Yes' : 'No'}
                             </label>
                         </div>
                         <div>
-                            <label>Successful Landing&nbsp;:</label>
+                            <label  className="font-weight-bold">Successful Landing&nbsp;:</label>
                             <label>
                                 {item.launch_success ? 'Yes' : 'No'}
                             </label>
                         </div>
                     </div>
-                </div>) : <h4>No Lunch Programs</h4>}
+                </div>) : <h4>No Launch Programs</h4>}
             </div>
         </div>
     );
