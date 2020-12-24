@@ -1,7 +1,6 @@
-import './App.scss';
-import Filter from './Filter/Filter';
-import Dashboard from './Dashboard/Dashboard';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
+const Filter = lazy(() => import('./Filter/Filter'));
+const Dashboard = lazy(() => import('./Dashboard/Dashboard'));
 
 function App() {
   const [filters, setFilters] = useState({
@@ -9,21 +8,28 @@ function App() {
     launch_success: true,
     landing_success: true
   });
+
+  const renderLoader = () => <p>Loading</p>;
+
   return (
-    <div className="container">
-      <h3 className="py-3">SpaceX Launch Programme</h3>
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-          <Filter filters={filters} setFilters={setFilters} />
+      <div className="container">
+        <h3 className="py-3">SpaceX Launch Programme</h3>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <Suspense fallback={renderLoader()}>
+              <Filter filters={filters} setFilters={setFilters} />
+            </Suspense>
+          </div>
+          <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+            <Suspense fallback={renderLoader()}>
+              <Dashboard filters={filters} />
+            </Suspense>
+          </div>
         </div>
-        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
-          <Dashboard filters={filters} />
+        <div class="row mt-auto mb-10">
+          <h5 className="mx-auto my-5">Developed By : Manav Kothari</h5>
         </div>
       </div>
-      <div class="row mt-auto mb-10">
-        <h5 className="mx-auto my-5">Developed By : Manav Kothari</h5>
-      </div>
-    </div>
   );
 }
 

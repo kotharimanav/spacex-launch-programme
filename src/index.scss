@@ -1,3 +1,5 @@
+// @import "bootstrap/scss/bootstrap";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,25 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+.container{
+  max-width: 1500px;
+  min-height: 100vh;
+  background: #f1f1f1;
+}
+
+.card{
+  background: white;
+  border-radius: 10px;
+  width:100%;
+  padding:10px;
+  margin:5px;
+}
+
+.fill { 
+  min-height: 100%;
+  height: 100%;
 }
