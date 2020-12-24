@@ -13,10 +13,10 @@ function App() {
     <div className="container">
       <h3>SpaceX Launch Programme</h3>
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
           <Filter filters={filters} setFilters={setFilters}  />
         </div>
-        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
           <Dashboard filters={filters}/>
         </div>
       </div>
