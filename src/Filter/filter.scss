@@ -1,0 +1,20 @@
+
+
+.filter{
+    min-width:210px;
+    text-align: center;
+    &_buttons{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;   
+    }
+}
+
+.btn{
+    background: greenyellow;
+    border-radius:5px;
+    margin:10px 0px;
+    &_hover{
+        background: green;
+    }
+}

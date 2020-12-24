@@ -1,0 +1,14 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.container{
+  max-width: 1400px;
+  min-height: 100vh;
+  background: #f1f1f1;
+}
+
+.card{
+  background: white;
+  border-radius: 10px;
+  max-width:250px;
+}
