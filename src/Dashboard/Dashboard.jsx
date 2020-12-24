@@ -17,7 +17,7 @@ const Dashboard = (props) => {
                 {data && data.length > 0 ? data.map(item => <div className="col-lg-3 my-2 col-md-6 col-sm-12">
                     <div className="card">
                         <div className="py-3">
-                            <img style={{ height: '140px', width: '100%' }} src={item.links && item.links.flickr_images[0]} />
+                            <img style={{ height: '140px', width: '100%' }} src={item.links && item.links.flickr_images[0]} alt="rocket" />
                         </div>
                         <div>{item.mission_name}#{item.flight_number}</div>
                         <div>
