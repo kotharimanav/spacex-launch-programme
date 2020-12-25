@@ -17,7 +17,7 @@ const Filter = (props) => {
             pathname: "/",
             state: props.filters
           }} >
-            {years.map(year => <button className={props.filters.launch_year === year ? 'btn btn_hover col-5 mx-1' : "btn col-5 mx-1"} onClick={() => { props.setFilters({ ...props.filters, launch_year: year }) }}>{year}</button>)}
+            {years.map(year => <button key={year} className={props.filters.launch_year === year ? 'btn btn_hover col-5 mx-1' : "btn col-5 mx-1"} onClick={() => { props.setFilters({ ...props.filters, launch_year: year }) }}>{year}</button>)}
           </Link>
         </Router>
       </div>

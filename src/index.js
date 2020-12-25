@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 const App = lazy(() => import('./App'));
+
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<p>Loading</p>}>
